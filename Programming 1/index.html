@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Leap Motion Tutorial</title>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.js"></script>
+	  <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
+	  <script src="https://js.leapmotion.com/leap-plugins-0.1.11.js"></script>
+	  <script src="https://js.leapmotiion.com/leap.rigged-hand-0.1.7.js"></script>
+      
+   </head>
+   <body>
+   <h1>Leap Motion Connection</h1>
+   <br>
+   
+   <script>
+   //create the controller object
+   var controller = new Leap.Controller();
+   //Connect to the Leap Motion Controller
+   controller.connect();
+   //Event listener for the frame data
+   controller.on('frame', function(frame){
+   //check if any hands are present in the current frame
+   if(frame.hands.length >0){
+   //get the first hand in the frame
+   var hand = frame.hands[0];
+   }
+   });
+   //Event listener for the controller connection
+   controller.on('connect', function(){
+	console.log('Leap Motion Controller connected');
+   });
+   </script>
+   <!--Ridged hands "displayed hands on screen" -->
+   <script>
+     (window.controller = new Leap.Controller)
+	  .use('riggedHand',{
+	    boneLabels: function(boneMesh,leapHand) {
+		
+		}
+		
+		})
+		  .connect()
+   </script>
+   
+   
+   
+   
+   </br>
+     
+   </body>
+</html>
